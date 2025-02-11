@@ -8,7 +8,8 @@ import { ThrowError } from "../utils/ErrorUtils.js";
 const userServices = new UserServices();
 
 // Generate 6-digit OTP
-const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
+const generateOTP = () =>
+  Math.floor(100000 + Math.random() * 900000).toString();
 
 // Register User
 export const registerUser = async (req, res) => {
@@ -43,11 +44,9 @@ export const loginUser = async (req, res) => {
     }
     let chekPassword = await bcrypt.compare(req.body.password, user.password);
     if (!chekPassword) {
-      return res
-        .status(401)
-        .json({
-          message: ` Password is Not Match Please Enter Correct Password..`,
-        });
+      return res.status(401).json({
+        message: ` Password is Not Match Please Enter Correct Password..`,
+      });
     }
     let token = jwt.sign({ userId: user._id }, "User");
     console.log(token);
@@ -131,7 +130,9 @@ export const forgotPassword = async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    return res.status(200).json({ message: "OTP sent successfully to your email." });
+    return res
+      .status(200)
+      .json({ message: "OTP sent successfully to your email." });
   } catch (error) {
     return ThrowError(res, 500, error.message);
   }
@@ -142,7 +143,9 @@ export const resetPassword = async (req, res) => {
   try {
     const { email, otp, password } = req.body;
     if (!email || !otp || !password) {
-      return res.status(400).json({ message: "Please provide email, OTP, and new password." });
+      return res
+        .status(400)
+        .json({ message: "Please provide email, OTP, and new password." });
     }
 
     const user = await userServices.getUserByEmail(email);
@@ -168,11 +171,10 @@ export const resetPassword = async (req, res) => {
       { expiresIn: "7d" }
     );
 
-    return res.status(200).json({ 
-      message: "Password reset successfully.", 
-      user: { id: user._id, email: user.email, isAdmin: user.isAdmin }
+    return res.status(200).json({
+      message: "Password reset successfully.",
+      user: { id: user._id, email: user.email, isAdmin: user.isAdmin },
     });
-
   } catch (error) {
     return ThrowError(res, 500, error.message);
   }
