@@ -7,6 +7,6 @@ usersRoutes.post("/registerUser", registerUser);
 usersRoutes.post("/loginUser", loginUser);
 usersRoutes.post("/changePassword", changePassword);
 usersRoutes.post("/forgotPassword", forgotPassword);
-usersRoutes.post("/resetPassword/:token", resetPassword);
+usersRoutes.post("/resetPassword", resetPassword);
 
 export default usersRoutes;

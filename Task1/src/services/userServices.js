@@ -45,7 +45,7 @@ class UserServices {
 
   async getUserByEmail(email) {
     try {
-      return await User.findOne({ email });
+      return await User.findOne({ email }).exec();
     } catch (error) {
       return error.message;
     }

@@ -40,6 +40,14 @@ const userSchema = mongoose.Schema(
       type: Number,
       required: true,
     },
+    resetOTP: {
+      type: String,
+      required: false,
+    },
+    otpExpires: {
+      type: Date,
+      required: false,
+    },
     isDelete: {
       type: Boolean,
       default: false,
