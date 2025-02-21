@@ -1,0 +1,80 @@
+v-1 what is mongodb
+    -> Mongodb is databese server
+    -> Document save as json formate
+    -> less relation
+    -> Data is Store together
+
+    * BSON -> Document Store JSON formate but behind stored BSON  
+
+v-2 Dawonlode Mongodb
+    -> https://www.mongodb.com/try/download/community
+
+V-3 install tedora
+
+
+V-4 
+    ---|| Create DB ||---
+    * use yourDatabaseName    -> use vijay
+    
+    ---|| Create Collection ||---
+    * db.createCollection     -> db.Students
+
+    ---|| Inser One ||---
+    * db.Students.insertOne({ name: "vivek", value: 123 })
+
+    ---|| Show Collection In Data ||---
+    * db.Students.find()
+
+V-5 Nested Document
+    ---|| Update Data ||---
+    db.Students.updateOne({name:'vivek'},{$set:{idcards:{hasPanCard:false,hasAdhaarCard:true}}})  
+    ---|| Fine Data ||---  
+    db.StudentsfindOne({name:'vivek'})
+
+V-6 CRUD
+    ---|| CREATE ||---   
+        ==> insertOne(data,options)
+        ==> insertMany(data,options) 
+
+    ---|| READ ||---    
+        ==> find(filter,options)
+        ==> findOne(filter,options)
+
+    ---|| UPADATE ||---  
+        ==> updateOne(filter,data,options)  
+        ==> updateMany(filter,data,options)  
+        ==> relaceOne(filter,data,options)  
+
+    ---|| DELETE ||---    
+        ==> deleteOne(filter,options)
+        ==> deleteMany(filter,options)
+
+V-7 Find Vs FindOne        
+    ---> db.Students.find({age:'11'})     ==> Show all Date
+    ---> db.Students.findOne({age:'11'})  ==> Show Frist Match Data
+
+V-8  HOW TO INSERT DOCUMENTS IN Collection
+    ==>  db.Students.insertOne({ name: "vivek", age: 13 })
+    ==>  db.Students.insertMany([{ name: "ram", age: 32 },{ name: "jay", age: 13 }])
+
+V-9 HOW TO UPDATE DOCUMENT IN Mongodb
+    ==> db.Students.updateOne({name:'ram'},{$set:{age:25}})
+    ==> db.Students.updateMany({age:13},{$set:{age:15}})
+
+V-10 HOW TO DELETE DOCUMENT IN Mongodb
+    ==> db.Students.deleteMany({age:13})
+    ==> db.Students.deleteOne({name:'jay'})
+    ==> db.Students.deleteMany({})     => DELETE ALL DATA 
+
+V-11 SELECT QUERY COLUMN
+    ==> db.Students.find({},{name:1})               --> show _id and Name 
+    ==> db.Students.find({},{name:1,_id:0,age:0})   --> Show Only name
+
+V-12 IS MONGODB REALLY SCHEMALESS
+    ==> {_id:1,name:"ram"}    
+    ==> {_id:2,name:"shyam"}    
+    ==> {_id:3,name:"shyam",addharNo:23456}    
+
+V-13 DATATYPE IN MONGODB
+    
+
