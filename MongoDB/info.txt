@@ -76,5 +76,22 @@ V-12 IS MONGODB REALLY SCHEMALESS
     ==> {_id:3,name:"shyam",addharNo:23456}    
 
 V-13 DATATYPE IN MONGODB
-    
+    text        boolean     ObjectId    ISODate
+    timestamp   array   emb.document
+    number  ==> integer(32bit)
+            ==> numberLong(64bit)
+            ==>  numberDesimal
 
+V-14 How to delete databases in mongodb
+    --> use mydb  
+    --> db.dropDatabase()  ==> database delete            
+    --> db.products.drop()  ==> selected collection  delete 
+
+V-15 Ordered option in inser command
+    --> sem _id thi data insert time errror not create next data
+    --> but using {ordered:false} so sem id skip and create next data
+
+V-16 Schema Validations 
+    Open File V-16Schema.js
+
+V-17 Write concern 
