@@ -1,0 +1,51 @@
+
+****|| orders ||**
+{ "_id": 1, "order_id": 101, "customer_id": 1, "amount": 500 }
+{ "_id": 2, "order_id": 102, "customer_id": 2, "amount": 300 }
+
+        ****|| customers ||**
+{ "_id": 1, "customer_name": "Virat Kohli", "city": "Delhi" }
+{ "_id": 2, "customer_name": "Rohit Sharma", "city": "Mumbai" }
+
+    db.orders.aggregate([
+   {
+      $lookup:
+         {
+           from: "customers",
+           localField: "customer_id",
+           foreignField: "_id",
+           as: "customer_info"
+         }
+   }
+])
+
+
+
+
+{
+    "_id": 1,
+    "order_id": 101,
+    "customer_id": 1,
+    "amount": 500,
+    "customer_info": [
+       {
+          "_id": 1,
+          "customer_name": "Virat Kohli",
+          "city": "Delhi"
+       }
+    ]
+ }
+ {
+    "_id": 2,
+    "order_id": 102,
+    "customer_id": 2,
+    "amount": 300,
+    "customer_info": [
+       {
+          "_id": 2,
+          "customer_name": "Rohit Sharma",
+          "city": "Mumbai"
+       }
+    ]
+ }
+ 
