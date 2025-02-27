@@ -61,10 +61,10 @@
         <div class="product">
             <img src="https://cdn.pixabay.com/photo/2014/04/03/10/55/t-shirt-311732_960_720.png" alt="Shirt">
             <p>Shirt</p>
-            <p><b>Amount: Rs. 101</b></p>
+            <p><b>Amount: Rs. 100</b></p>
             <form class="pay-form">
                 <input type="hidden" name="name" value="Shirt">
-                <input type="hidden" name="amount" value="500">
+                <input type="hidden" name="amount" value="100">
                 <input type="hidden" name="description" value="Shirt Buying">
                 <input type="submit" value="Pay Now">
             </form>
@@ -73,10 +73,10 @@
         <div class="product">
             <img src="https://cdn.pixabay.com/photo/2013/07/12/18/20/shoes-153310_960_720.png" alt="Shoes">
             <p>Shoes</p>
-            <p><b>Amount: Rs. 100</b></p>
+            <p><b>Amount: Rs. 110</b></p>
             <form class="pay-form">
                 <input type="hidden" name="name" value="Shoes">
-                <input type="hidden" name="amount" value="1500">
+                <input type="hidden" name="amount" value="110">
                 <input type="hidden" name="description" value="Shoes Buying">
                 <input type="submit" value="Pay Now">
             </form>
@@ -94,13 +94,13 @@
                     data: formData,
                     success: function(res) {
                         if (res.success) {
-                            var options = {
+                            let options = {
                                 "key": res.key_id,
                                 "amount": res.amount,
                                 "currency": "INR",
                                 "name": res.product_name,
                                 "description": res.description,
-                                "image": "https://dummyimage.com/600x400/000/fff",
+                                "image": "https://img.freepik.com/premium-vector/vd-logo-design_844897-3.jpg",
                                 "order_id": res.order_id,
                                 "handler": function (response) {
                                     alert("Payment Succeeded");

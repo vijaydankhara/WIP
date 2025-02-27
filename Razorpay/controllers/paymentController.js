@@ -28,7 +28,7 @@ export const createOrder = async (req, res) => {
     }
 
     const options = {
-      amount: amount, // Convert to the smallest currency unit
+      amount: amount * 100, // Convert to the smallest currency unit
       currency,
       receipt: receipt || `receipt_${Date.now()}`,
     };
